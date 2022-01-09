@@ -6,7 +6,7 @@
 /*   By: wismith <wismith@42ABUDHABI.AE>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 20:44:38 by wismith           #+#    #+#             */
-/*   Updated: 2022/01/09 16:00:59 by wismith          ###   ########.fr       */
+/*   Updated: 2022/01/09 18:11:42 by wismith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 char	*ft_free(char *s)
 {
+	if (!s)
+		return (NULL);
 	free (s);
 	s = NULL;
 	return (NULL);
@@ -27,16 +29,15 @@ char	*gnl_algo(char *save, int fd)
 	temp = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!temp)
 		return (NULL);
+	temp[0] = '\0';
 	check = 1;
-	while (check > 0)
+	while (check > 0 && !ft_nlel(temp))
 	{
 		check = read(fd, temp, BUFFER_SIZE);
 		if (check == -1)
 			return (ft_free(temp));
 		temp[check] = '\0';
 		save = ft_strjoin(save, temp, BUFFER_SIZE);
-		if (ft_nlel(temp))
-			break ;
 	}
 	ft_free(temp);
 	return (save);
