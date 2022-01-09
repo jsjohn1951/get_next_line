@@ -6,7 +6,7 @@
 /*   By: wismith <wismith@42ABUDHABI.AE>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 18:31:23 by wismith           #+#    #+#             */
-/*   Updated: 2022/01/08 20:35:08 by wismith          ###   ########.fr       */
+/*   Updated: 2022/01/09 15:55:35 by wismith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ft_nlel(char *s)
 	return (0);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin(char *s1, char *s2, int s2size)
 {
 	char	*res;
 	int		i;
@@ -46,7 +46,7 @@ char	*ft_strjoin(char *s1, char *s2)
 		return (NULL);
 	i = 0;
 	index = 0;
-	res = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	res = (char *)malloc(sizeof(char) * (ft_strlen(s1) + s2size + 1));
 	if (!res)
 		return (NULL);
 	while (s1 && s1[i] != '\0')

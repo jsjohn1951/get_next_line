@@ -6,7 +6,7 @@
 /*   By: wismith <wismith@42ABUDHABI.AE>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 20:44:38 by wismith           #+#    #+#             */
-/*   Updated: 2022/01/08 20:06:08 by wismith          ###   ########.fr       */
+/*   Updated: 2022/01/09 16:00:59 by wismith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*gnl_algo(char *save, int fd)
 		if (check == -1)
 			return (ft_free(temp));
 		temp[check] = '\0';
-		save = ft_strjoin(save, temp);
+		save = ft_strjoin(save, temp, BUFFER_SIZE);
 		if (ft_nlel(temp))
 			break ;
 	}
